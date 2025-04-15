@@ -1,13 +1,14 @@
-from flask import Flask, request, jsonify
+import os
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/', methods=['POST'])
 def webhook():
     data = request.json
-    print("Ricevuto segnale da TradingView:")
-    print(data)
-    return jsonify({"status": "ricevuto"}), 200
+    print("Ricevuto webhook:", data)
+    return '', 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    port = int(os.environ.get("PORT", 5000))  # Render userà questa variabile PORT
+    app.run(host='0.0.0.0', port=port)
