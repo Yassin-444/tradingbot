@@ -25,7 +25,7 @@ def send_telegram_message(text):
     except Exception as e:
         print("Errore Telegram:", e)
 
-@app.route('/webhook, methods=['POST'])
+@app.route('/webhook", methods=['POST'])
 def webhook():
     data = request.json
     print("Ricevuto webhook:", data)
