@@ -1,4 +1,4 @@
-From dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 import requests
 from flask import Flask, request
