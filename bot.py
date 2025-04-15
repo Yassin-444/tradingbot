@@ -7,7 +7,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = os.getenv ("TELEGRAM_TOKEN")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = '1937600819'
 
 @app.route('/', methods=['GET'])
@@ -25,7 +25,7 @@ def send_telegram_message(text):
     except Exception as e:
         print("Errore Telegram:", e)
 
-@app.route('/', methods=['POST'])
+@app.route('/webhook, methods=['POST'])
 def webhook():
     data = request.json
     print("Ricevuto webhook:", data)
