@@ -1,11 +1,18 @@
+From dotenv import load_dotenv
 import os
 import requests
 from flask import Flask, request
 
+load_dotenv()
+
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = '7666973146:AAGH5wYdSUTGYwpBkoqRf4LRiQpmb_xB8mQ'
+TELEGRAM_TOKEN = os.getenv ("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = '1937600819'
+
+@app.route('/', methods=['GET'])
+def home():
+    return 'Bot attivo!'
 
 def send_telegram_message(text):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
